@@ -8,8 +8,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard']);
-Route::post('/courses/store', [App\Http\Controllers\CourseController::class, 'store_courses']);
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('/home', App\Http\Controllers\HomeController::class);
+// Route::resource('/courses/store', [App\Http\Controllers\CourseController::class, 'store']);
+Route::resource('/courses', App\Http\Controllers\CourseController::class);
+
 
 
