@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CourseController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -8,10 +11,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/home', App\Http\Controllers\HomeController::class);
-// Route::resource('/courses/store', [App\Http\Controllers\CourseController::class, 'store']);
-Route::resource('/courses', App\Http\Controllers\CourseController::class);
+Route::resource('/home',HomeController::class);
+Route::resource('/courses',CourseController::class);
+Route::get('/addCourse', [CourseController::class , 'addCourse'] );
+Route::get('/update/Course/{id}', [CourseController::class , 'updateCourse'] )->name('update.course');
+Route::resource('/courses/{id}',CourseController::class);
+// Route::resource('/courses/{id}',CourseController::class)->name('destroy','destroy.course');
+Route::delete('/courses/{id}', [CourseController::class, 'destroy'])->name('destroy.course');
+
+
 
 
 
