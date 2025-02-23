@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\course;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -12,7 +15,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $course = course::all();
+        $user_id = Auth::id();
+        $user = User::find($user_id);
+        $course = $user->course;
+        // dd($user_id);
         return view('index' , compact('course'));
     }
 
@@ -63,4 +69,10 @@ class HomeController extends Controller
     {
         //
     }
+
+    // public function logout()
+    // {
+    //     Auth::logout();
+    //     return redirect()->route('login')->with('message', ' تم تسجيل الخروج بنجااح!');
+    // }
 }

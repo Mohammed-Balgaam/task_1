@@ -20,6 +20,9 @@ class CourseFactory extends Factory
            'name' => $this->faker->word(),
             'duration' => $this->faker->numberBetween(10, 100), 
             'field' => $this->faker->word(), 
+            'price' => $this->faker->numberBetween(10, 10000),
+            'desc' => $this->faker->paragraph(),
+            'image_url' => 'coursesImages/' . $this->faker->image('storage/app/public/coursesImages', 640, 480, 'courses', false),
             'user_id' => \App\Models\User::inRandomOrder()->first()->id, 
         ];
     }

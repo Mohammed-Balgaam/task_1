@@ -27,6 +27,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.html">Home</a>
         </li>
+        
 		 
 		<li class="nav-item">
           <a class="nav-link" href="about.html">About </a>
@@ -75,6 +76,16 @@
 				<span class="input-group-btn">
 					<button class="btn btn-primary bg_blue border_1 rounded-circle" type="button">
 						<i class="fa fa-search"></i> </button>
+
+
+
+            <form action="{{ route('logout') }}" method="POST">
+              @csrf
+              <button type="submit">Logout</button>
+           </form>
+
+
+
 				</span>
 		</div>
         </li>

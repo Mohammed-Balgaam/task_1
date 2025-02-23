@@ -15,9 +15,10 @@ Route::resource('/home',HomeController::class);
 Route::resource('/courses',CourseController::class);
 Route::get('/addCourse', [CourseController::class , 'addCourse'] );
 Route::get('/update/Course/{id}', [CourseController::class , 'updateCourse'] )->name('update.course');
-Route::resource('/courses/{id}',CourseController::class);
+Route::resource('/courses',CourseController::class);///{id}
 // Route::resource('/courses/{id}',CourseController::class)->name('destroy','destroy.course');
 Route::delete('/courses/{id}', [CourseController::class, 'destroy'])->name('destroy.course');
+// Route::post('/logout' ,[HomeController::class , 'logout'] );
 
 
 

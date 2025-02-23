@@ -11,5 +11,11 @@ class course extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'duration', 'field','price', 'desc' ,  'image_url' ,'user_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
 
